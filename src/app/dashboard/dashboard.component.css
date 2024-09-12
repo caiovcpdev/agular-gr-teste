@@ -17,3 +17,20 @@ p-chart {
     flex: 1; /* Faz com que cada gráfico ocupe uma parte igual do contêiner */
     min-width: 300px; /* Define a largura mínima de cada gráfico */
 }
+
+.form-group {
+    margin-bottom: 1.5rem; /* Espaçamento entre os campos */
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Espaçamento entre o label e o input */
+}
+
+.form-input {
+    width: 100%; /* O input vai ocupar toda a largura disponível */
+    padding: 0.5rem; /* Adiciona padding interno ao input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

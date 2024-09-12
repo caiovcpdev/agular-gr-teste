@@ -14,19 +14,19 @@ import { CommonModule } from '@angular/common';
 
 import { UsuarioService } from '../../services/usuario.service';
 import { UsuarioLogin } from '../../services/Login';
+import { FooterComponent } from "../footer/footer.component";
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [  ButtonModule,
-              CardModule,
-              FormsModule,
-              InputTextModule,
-              FloatLabelModule,
-              PasswordModule,
-              CommonModule
-            ],
+  imports: [ButtonModule,
+    CardModule,
+    FormsModule,
+    InputTextModule,
+    FloatLabelModule,
+    PasswordModule,
+    CommonModule, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

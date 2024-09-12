@@ -1,0 +1,22 @@
+/* app.component.css */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que a altura mínima da página seja 100% da altura da viewport */
+  }
+  
+  main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+  }
+  
+  app-footer {
+    background-color: #f8f9fa; /* Cor de fundo para o footer */
+    padding: 10px; /* Espaçamento interno */
+    text-align: center; /* Alinha o texto no centro */
+  }
+  

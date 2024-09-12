@@ -8,12 +8,17 @@ import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms'; 
 
 import { Router } from '@angular/router';
 
+
+import { MapaComponent } from '../shared/mapa/mapa.component';
+import { FooterComponent } from '../footer/footer.component';
 //api service
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/Usuario';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -26,8 +31,12 @@ import { Usuario } from '../../services/Usuario';
     CardModule,
     DialogModule,
     ButtonModule,
-    InputTextModule
-  ],
+    InputTextModule,
+    FormsModule,
+    NavbarComponent,
+    MapaComponent,
+    FooterComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -36,6 +45,18 @@ export class DashboardComponent implements OnInit {
 
   basicData: any;
   basicOptions: any;
+
+  visible: boolean = false;
+
+  Usuario: Usuario | undefined = undefined;
+  usuNome: string = '';
+  usuEmail: string = '';
+  usuCep: string = '';
+
+
+  showDialog() {
+      this.visible = true;
+  }
 
   // Dados que serão exibidos na tabela
   data: any;
@@ -121,19 +142,29 @@ export class DashboardComponent implements OnInit {
       }
     };
   }
-  buscarPorId (id: string) {
+
+  buscarPorId(id: string) {
     this.usuarioService.getUsuarioById(id).subscribe(
-      (response : Usuario) => {
-        this.data = response;
-        if (response){
-          alert(response.id)
-          //this.router.navigate(['/cadastro', response.id])
+      (response: Usuario) => {
+        if (response) {
+
+          this.usuNome = response.nome;
+          this.usuEmail = response.email;
+          this.usuCep = response.endereco.cep; 
+
+          this.visible = true;
+        } else {
+          console.error('Usuário não encontrado');
         }
-        else {console.log('erro ao resgatar usuario')}
       },
       error => {
-        console.error('Erro ao buscar usuarios', error);
+        console.error('Erro ao buscar usuário', error);
       }
-  );
+    );
   }
+
+  // atualizarUsuario(id: string, nome:string, emial:string, cep:string) {
+  //   alert('Estou funcionando')
+  // }
+
 }

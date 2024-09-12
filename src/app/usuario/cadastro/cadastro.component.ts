@@ -4,18 +4,19 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { Endereco, Usuario } from '../../services/Usuario';
-import { UsuarioService } from '../../services/usuario.service';
+import { Endereco, Usuario } from '../../../services/Usuario';
+import { UsuarioService } from '../../../services/usuario.service';
 import { ButtonModule } from 'primeng/button';
 import { InputMaskModule } from 'primeng/inputmask';
-import { ViaCepService } from '../../services/via_cep.service';
+import { ViaCepService } from '../../../services/via_cep.service';
+import { FooterComponent } from "../../footer/footer.component";
 
 
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [InputGroupModule, InputGroupAddonModule, FormsModule, InputTextModule, FloatLabelModule, ButtonModule, InputMaskModule],
+  imports: [InputGroupModule, InputGroupAddonModule, FormsModule, InputTextModule, FloatLabelModule, ButtonModule, InputMaskModule, FooterComponent],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
