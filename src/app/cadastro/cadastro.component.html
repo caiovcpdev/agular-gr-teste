@@ -22,41 +22,44 @@
           <label for="password">Senha</label>
         </p-floatLabel>
       </div>
+
+      <div class="input-field">
+        <p-inputMask 
+            mask="99999-999" 
+            [(ngModel)]="usuario.endereco.cep" 
+            placeholder="99999-999"
+            (change)="getCep()" />
+      </div>
   
       <div class="input-field">
         <p-floatLabel>
-          <input pInputText id="logradouro" [(ngModel)]="usuario.endereco.logradouro" />
+          <input pInputText id="logradouro" [(ngModel)]="usuario.endereco.logradouro" [disabled]="!usuario.endereco.cep" />
           <label for="logradouro">Logradouro</label>
         </p-floatLabel>
       </div>
   
       <div class="input-field">
         <p-floatLabel>
-          <input pInputText id="localidade" [(ngModel)]="usuario.endereco.localidade" />
+          <input pInputText id="localidade" [(ngModel)]="usuario.endereco.localidade" [disabled]="!usuario.endereco.cep"/>
           <label for="localidade">Localidade</label>
         </p-floatLabel>
       </div>
   
       <div class="input-field">
         <p-floatLabel>
-          <input pInputText id="estado" [(ngModel)]="usuario.endereco.estado" />
+          <input pInputText id="estado" [(ngModel)]="usuario.endereco.estado" [disabled]="!usuario.endereco.cep"/>
           <label for="estado">Estado</label>
         </p-floatLabel>
       </div>
   
       <div class="input-field">
         <p-floatLabel>
-          <input pInputText id="uf" [(ngModel)]="usuario.endereco.uf" />
+          <input pInputText id="uf" [(ngModel)]="usuario.endereco.uf" [disabled]="!usuario.endereco.cep"/>
           <label for="uf">UF</label>
         </p-floatLabel>
       </div>
   
-      <div class="input-field">
-        <p-inputMask 
-            mask="99999-999" 
-            [(ngModel)]="usuario.endereco.cep" 
-            placeholder="99999-999" />
-      </div>
+      
   
       <button pButton type="button" label="Salvar" class="btn-salvar" (click)="salvarUsuario()"></button>
     </div>

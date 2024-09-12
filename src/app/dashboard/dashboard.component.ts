@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
@@ -19,6 +18,10 @@ import { FooterComponent } from '../footer/footer.component';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/Usuario';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { CadastroComponent } from "../cadastro/cadastro.component";
+import { CommunicationService } from '../../services/CommunicationService.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -35,24 +38,39 @@ import { NavbarComponent } from "../navbar/navbar.component";
     FormsModule,
     NavbarComponent,
     MapaComponent,
-    FooterComponent
+    FooterComponent,
+    CadastroComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  items: MenuItem[] | undefined;
+  private subscription: Subscription = new Subscription(); // Inicializa com uma nova instância
 
   basicData: any;
   basicOptions: any;
 
   visible: boolean = false;
+  visibleCreate: boolean = false;
 
-  Usuario: Usuario | undefined = undefined;
+  usuario: Usuario = {
+    id: '',
+    nome: '',
+    email: '',
+    password: '',
+    endereco: {
+      localidade: '',
+      estado: '',
+      uf: '',
+      logradouro: '',
+      cep: ''
+    }
+  };
   usuNome: string = '';
   usuEmail: string = '';
   usuCep: string = '';
 
+  selectedUser: Usuario | null = null; // Usuário selecionado que será passado ao modal
 
   showDialog() {
       this.visible = true;
@@ -61,9 +79,13 @@ export class DashboardComponent implements OnInit {
   // Dados que serão exibidos na tabela
   data: any;
 
-  constructor(private usuarioService: UsuarioService, private router : Router) { }
+  constructor(private usuarioService: UsuarioService, private router : Router, private communicationService: CommunicationService) { }
 
   ngOnInit() {
+    this.subscription = this.communicationService.event$.subscribe(eventName => {
+      this.handleEvent(eventName);
+    });
+
     this.usuarioService.getUsuarios().subscribe(
       (response : Usuario) => {
         this.data = response;
@@ -71,33 +93,14 @@ export class DashboardComponent implements OnInit {
       error => {
         console.error('Erro ao buscar usuarios', error);
       }
-  );
-
-    // Configuração da navbar
-  this.items =  [
-      {
-          label: 'Home',
-          icon: 'pi pi-home',
-          routerLink: '/'
-      },
-      {
-          label: 'Cadastro',
-          icon: 'pi pi-user-plus',
-          routerLink: '/cadastro'
-      },
-      {
-          label: 'Sair',
-          icon: 'pi pi-sign-out',
-          routerLink: '/login'
-      }
-  ];
+    );
 
     // Configuração do gráfico
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-    
+      
     this.basicData = {
       labels: ['Q1', 'Q2', 'Q3', 'Q4'],
       datasets: [
@@ -143,16 +146,25 @@ export class DashboardComponent implements OnInit {
     };
   }
 
+  handleEvent(eventName: string) {
+    switch (eventName) {
+     
+      case 'cadastroClicked':
+        this.onCreateClick();
+        break;
+    }
+  }
+
   buscarPorId(id: string) {
     this.usuarioService.getUsuarioById(id).subscribe(
       (response: Usuario) => {
         if (response) {
 
-          this.usuNome = response.nome;
-          this.usuEmail = response.email;
-          this.usuCep = response.endereco.cep; 
+         this.usuario = response;
+         this.selectedUser = this.usuario;
+         console.log(this.selectedUser);
 
-          this.visible = true;
+         this.visible = true;
         } else {
           console.error('Usuário não encontrado');
         }
@@ -163,6 +175,16 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  onCreateClick() {
+    console.log('Cadastro clicked');
+    this.visibleCreate = true;
+    
+  }
+
+  openCreateUserDialog(user: Usuario) {
+    this.selectedUser = user;
+    this.visibleCreate = true;
+  }
   // atualizarUsuario(id: string, nome:string, emial:string, cep:string) {
   //   alert('Estou funcionando')
   // }
