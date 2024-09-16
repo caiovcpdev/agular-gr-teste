@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -37,7 +37,9 @@ export class LoginComponent {
   };
   mensagemErro: string = '';
 
+
 constructor(private loginService: UsuarioService, private router: Router) {}
+
 salvarUsuario(): void {
     //Verifica se is campos foram preenchidos
   if (this.usuario.email && this.usuario.password) {

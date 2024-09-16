@@ -7,7 +7,7 @@ import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 import { Router } from '@angular/router';
 
@@ -18,7 +18,6 @@ import { FooterComponent } from '../footer/footer.component';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/Usuario';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { CadastroComponent } from "../cadastro/cadastro.component";
 import { CommunicationService } from '../../services/CommunicationService.service';
 import { Subscription } from 'rxjs';
 import { MenuVerticalComponent } from "../menu-vertical/menu-vertical.component";
@@ -40,7 +39,6 @@ import { MenuVerticalComponent } from "../menu-vertical/menu-vertical.component"
     NavbarComponent,
     MapaComponent,
     FooterComponent,
-    CadastroComponent,
     MenuVerticalComponent
 ],
   templateUrl: './dashboard.component.html',
@@ -48,9 +46,6 @@ import { MenuVerticalComponent } from "../menu-vertical/menu-vertical.component"
 })
 export class DashboardComponent implements OnInit {
   private subscription: Subscription = new Subscription(); // Inicializa com uma nova instância
-
-  basicData: any;
-  basicOptions: any;
 
   visible: boolean = false;
   visibleCreate: boolean = false;
@@ -96,61 +91,11 @@ export class DashboardComponent implements OnInit {
         console.error('Erro ao buscar usuarios', error);
       }
     );
-
-    // Configuração do gráfico
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-      
-    this.basicData = {
-      labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-      datasets: [
-        {
-          label: 'Sales',
-          data: [540, 325, 702, 620],
-          backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
-          borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'],
-          borderWidth: 1
-        }
-      ]
-    }; 
-
-    this.basicOptions = {
-      plugins: {
-        legend: {
-          labels: {
-            color: textColor
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            color: textColorSecondary
-          },
-          grid: {
-            color: surfaceBorder,
-            drawBorder: false
-          }
-        },
-        x: {
-          ticks: {
-            color: textColorSecondary
-          },
-          grid: {
-            color: surfaceBorder,
-            drawBorder: false
-          }
-        }
-      }
-    };
   }
 
   handleEvent(eventName: string) {
     switch (eventName) {
-     
+
       case 'cadastroClicked':
         this.onCreateClick();
         break;
@@ -180,7 +125,7 @@ export class DashboardComponent implements OnInit {
   onCreateClick() {
     console.log('Cadastro clicked');
     this.visibleCreate = true;
-    
+
   }
 
   openCreateUserDialog(user: Usuario) {

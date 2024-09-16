@@ -27,32 +27,17 @@
                 </p-card>
             </div>
          </div>
-         
+
          <div class="card flex justify-content-center">
             <div class="mapa-content">
                 <p-card header="Monitoramento de agentes">
                     <app-mapa></app-mapa>
                 </p-card>
             </div>
-        </div>   
-        <!-- CHART -->
-         <div class="card flex justify-content-center">
-            <p-card header="Charts">
-                <div class="chart-container">
-                    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
-                    <p-chart type="line" [data]="basicData" [options]="basicOptions" style="height: 445px"></p-chart>
-                </div>
-            </p-card>
         </div>
+        <!-- CHART -->
+
 
     </div>
-
-    <p-dialog header="Create user" [modal]="true" [(visible)]="visibleCreate" [style]="{ width: '25rem' }">
-        <app-cadastro></app-cadastro>
-    </p-dialog>
-
-    <p-dialog header="Update user" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-        <app-cadastro [user]="selectedUser"></app-cadastro>
-    </p-dialog>
     <app-footer></app-footer>
 </div>

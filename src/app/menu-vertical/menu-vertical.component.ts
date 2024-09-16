@@ -1,65 +1,70 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
-import { BadgeModule } from 'primeng/badge';
-import { RippleModule } from 'primeng/ripple';
-import { AvatarModule } from 'primeng/avatar';
-import { CommonModule } from '@angular/common'; // Importar o CommonModule
+import { ToastModule } from 'primeng/toast';
 
 
 @Component({
   selector: 'app-menu-vertical',
   standalone: true,
-  imports: [MenuModule, BadgeModule, RippleModule, AvatarModule, CommonModule],
+  imports: [MenuModule, ToastModule],
   templateUrl: './menu-vertical.component.html',
   styleUrl: './menu-vertical.component.css'
 })
 export class MenuVerticalComponent implements OnInit {
   items: MenuItem[] | undefined;
 
-    ngOnInit() {
-        this.items = [
-            {
-                separator: true
-            },
-            {
-                label: 'Documents',
-                items: [
-                    {
-                        label: 'New',
-                        icon: 'pi pi-plus',
-                        shortcut: '⌘+N'
-                    },
-                    {
-                        label: 'Search',
-                        icon: 'pi pi-search',
-                        shortcut: '⌘+S'
-                    }
-                ]
-            },
-            {
-                label: 'Profile',
-                items: [
-                    {
-                        label: 'Settings',
-                        icon: 'pi pi-cog',
-                        shortcut: '⌘+O'
-                    },
-                    {
-                        label: 'Messages',
-                        icon: 'pi pi-inbox',
-                        badge: '2'
-                    },
-                    {
-                        label: 'Logout',
-                        icon: 'pi pi-sign-out',
-                        shortcut: '⌘+Q'
-                    }
-                ]
-            },
-            {
-                separator: true
-            }
-        ];
-    }
+  ngOnInit() {
+    this.items = [
+        {
+            label: 'Cliente',
+            icon: 'pi pi-cog',
+            items: [
+                {
+                    label: 'Cadastrar',
+                    icon: 'pi pi-plus',
+                    routerLink: 'cliente/cadastrar'
+                },
+                {
+                    label: 'Listar',
+                    icon: 'pi pi-search',
+                    routerLink: 'cliente/listar'
+                }
+            ]
+        },
+        {
+            label: 'Equipamentos',
+            icon: 'pi pi-cog',
+            items: [
+                {
+                    label: 'Cadastrar',
+                    icon: 'pi pi-plus',
+                    routerLink: 'equipamento/cadastrar'
+                },
+                {
+                    label: 'Listar',
+                    icon: 'pi pi-search',
+                    routerLink: 'equipamento/listar'
+                }
+            ]
+        },
+        {
+          label: 'Lote',
+          icon: 'pi pi-cog',
+          items: [
+              {
+                  label: 'Cadastrar',
+                  icon: 'pi pi-plus',
+                  routerLink: 'lote/cadastrar'
+              },
+              {
+                  label: 'Listar',
+                  icon: 'pi pi-search',
+                  routerLink: 'lote/listar'
+              }
+          ]
+      }
+    ];
+  }
 }
