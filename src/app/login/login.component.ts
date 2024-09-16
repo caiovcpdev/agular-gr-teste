@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 
 import { UsuarioService } from '../../services/usuario.service';
 import { UsuarioLogin } from '../../services/Login';
-import { FooterComponent } from "../footer/footer.component";
+import { FooterComponent } from "../shared/footer/footer.component";
 
 
 @Component({

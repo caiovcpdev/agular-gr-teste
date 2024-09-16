@@ -1,10 +1,19 @@
 <app-navbar></app-navbar>
 <div class="card-container">
     <div class="card flex flex-column">
-        <h1>Cadastro Clientes</h1>
+        <h1>Cadastro Equipamentos</h1>
         
         <div class="flex flex-column gap-2">
-            <label for="razao_social">Razão Social</label>
+            <label for="razao_social">Marca / Modelo</label>
+            <input 
+                pInputText
+                id="razao_social" 
+                aria-describedby="username-help" 
+                [(ngModel)]="value" />
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label for="razao_social">Cor</label>
             <input 
                 pInputText
                 id="razao_social" 
@@ -12,7 +21,7 @@
                 [(ngModel)]="value" />
         </div>
         
-        <div class="flex flex-column gap-2">
+        <!-- <div class="flex flex-column gap-2">
             <label for="autocomplete">Cidade</label>
             <p-autoComplete 
                 [(ngModel)]="selectedCity" 
@@ -29,10 +38,10 @@
                     </div>
                 </ng-template>
             </p-autoComplete>
-        </div>
+        </div> -->
 
         <div class="flex flex-column gap-2">
-            <label for="secretaria">Secretaria</label>
+            <label for="secretaria">Imei</label>
             <input 
                 pInputText
                 id="secretaria" 
@@ -40,11 +49,11 @@
                 [(ngModel)]="value" />
         </div>
 
-        <div class="flex flex-column gap-2">
+        <!-- <div class="flex flex-column gap-2">
             <label for="integeronly">Quantidade de aparelhos</label>
             <p-inputNumber 
                 inputId="integeronly" 
                 [(ngModel)]="input_number" /> 
-        </div>
+        </div> -->
     </div>
 </div>

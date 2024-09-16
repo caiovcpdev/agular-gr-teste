@@ -1,11 +1,11 @@
-
+<app-navbar></app-navbar>
 <div class="dashboard-container">
     <div class="content">
         <!-- TABLE -->
          <div class="users-table">
             <div class="card flex justify-content-center">
                 <p-card header="Users">
-                    <p-table [value]="data" [paginator]="true" [rows]="10" [responsive]="true">
+                    <p-table [value]="data" [paginator]="true" [rows]="10">
                         <ng-template pTemplate="header">
                           <tr>
                             <th>Nome</th>
@@ -39,5 +39,16 @@
 
 
     </div>
+<<<<<<< Updated upstream
+=======
+
+    <p-dialog header="Create user" [modal]="true" [(visible)]="visibleCreate" [style]="{ width: '25rem' }">
+        <!-- <app-cadastro></app-cadastro> -->
+    </p-dialog>
+
+    <p-dialog header="Update user" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+        <!-- <app-cadastro [user]="selectedUser"></app-cadastro> -->
+    </p-dialog>
+>>>>>>> Stashed changes
     <app-footer></app-footer>
 </div>

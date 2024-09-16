@@ -1,8 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -13,14 +13,13 @@ import { Router } from '@angular/router';
 
 
 import { MapaComponent } from '../shared/mapa/mapa.component';
-import { FooterComponent } from '../footer/footer.component';
+import { FooterComponent } from '../shared/footer/footer.component';
 //api service
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/Usuario';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { CommunicationService } from '../../services/CommunicationService.service';
 import { Subscription } from 'rxjs';
-import { MenuVerticalComponent } from "../menu-vertical/menu-vertical.component";
 
 
 @Component({
@@ -38,13 +37,12 @@ import { MenuVerticalComponent } from "../menu-vertical/menu-vertical.component"
     FormsModule,
     NavbarComponent,
     MapaComponent,
-    FooterComponent,
-    MenuVerticalComponent
+    FooterComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit  {
   private subscription: Subscription = new Subscription(); // Inicializa com uma nova instância
 
   visible: boolean = false;

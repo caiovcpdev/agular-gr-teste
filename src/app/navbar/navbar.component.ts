@@ -25,17 +25,23 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Cadastro',
         icon: 'pi pi-user-plus',
-        command: () => this.onCreateClick()  // Use 'command' para ações de clique
-      },
-      {
-        label: 'TVL',
-        icon: 'pi pi-user-plus',
-        routerLink: '/tvl'   // Use 'command' para ações de clique
-      },
-      {
-        label: 'Clientes',
-        icon: 'pi pi-user-plus',
-        routerLink: '/clientes'   // Use 'command' para ações de clique
+        items : [
+            {
+              label: 'Clientes',
+              icon: 'pi pi-user-plus',
+              routerLink:'/cliente'
+            },
+            {
+              label: 'Equipamento',
+              icon: 'pi pi-user-plus',
+              routerLink : '/equipamento'
+            },
+            {
+              label: 'Lote',
+              icon: 'pi pi-user-plus',
+              routerLink :'/lote'
+            } 
+        ]
       },
       {
         label: 'Sair',

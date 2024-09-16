@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
-import { FooterComponent } from "./footer/footer.component";
+import { FooterComponent } from "./shared/footer/footer.component";
 import { MenuVerticalComponent } from "./menu-vertical/menu-vertical.component";
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { filter } from 'rxjs';
