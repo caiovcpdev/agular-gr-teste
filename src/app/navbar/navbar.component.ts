@@ -33,6 +33,11 @@ export class NavbarComponent implements OnInit {
         routerLink: '/tvl'   // Use 'command' para ações de clique
       },
       {
+        label: 'Clientes',
+        icon: 'pi pi-user-plus',
+        routerLink: '/clientes'   // Use 'command' para ações de clique
+      },
+      {
         label: 'Sair',
         icon: 'pi pi-sign-out',
         routerLink: '/login'  // Navegação para Login

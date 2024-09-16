@@ -21,6 +21,7 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { CadastroComponent } from "../cadastro/cadastro.component";
 import { CommunicationService } from '../../services/CommunicationService.service';
 import { Subscription } from 'rxjs';
+import { MenuVerticalComponent } from "../menu-vertical/menu-vertical.component";
 
 
 @Component({
@@ -39,7 +40,8 @@ import { Subscription } from 'rxjs';
     NavbarComponent,
     MapaComponent,
     FooterComponent,
-    CadastroComponent
+    CadastroComponent,
+    MenuVerticalComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
