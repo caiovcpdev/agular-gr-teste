@@ -1,0 +1,43 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="dashboard-container" >
+    <div class="content">
+        <!-- TABLE -->
+         <div class="users-table">
+            <div class="card flex justify-content-center">
+                <p-card header="Users">
+                    <p-table [value]="data" [paginator]="true" [rows]="5">
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>CEP</th>
+                            <th></th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData>
+                            <tr>
+                                <td>{{rowData.nome}}</td>
+                                <td>{{rowData.email }}</td>
+                                <td>{{rowData.endereco.cep }}</td>
+                                <td><a (click)="buscarPorId(rowData.id)"><i class="pi pi-user-edit"></i></a></td>
+                                <!-- <a (click)="showDialog()"><td><i class="pi pi-user-edit"></i></td></a> -->
+                              </tr>
+                        </ng-template>
+                      </p-table>
+                </p-card>
+            </div>
+         </div>
+
+         <div class="card flex justify-content-center" style="padding: 2rem 0;">
+            <div class="mapa-content">
+                <p-card header="Monitoramento de agentes">
+                    <app-mapa></app-mapa>
+                </p-card>
+            </div>
+        </div>
+        <!-- CHART -->
+
+
+    </div>
+    <app-footer></app-footer>
+</div>

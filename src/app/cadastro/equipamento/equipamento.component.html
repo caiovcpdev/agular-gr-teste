@@ -1,0 +1,59 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="card-container">
+    <div class="card flex flex-column">
+        <h1>Cadastro Equipamentos</h1>
+        
+        <div class="flex flex-column gap-2">
+            <label for="razao_social">Marca / Modelo</label>
+            <input 
+                pInputText
+                id="razao_social" 
+                aria-describedby="username-help" 
+                [(ngModel)]="value" />
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label for="razao_social">Cor</label>
+            <input 
+                pInputText
+                id="razao_social" 
+                aria-describedby="username-help" 
+                [(ngModel)]="value" />
+        </div>
+        
+        <!-- <div class="flex flex-column gap-2">
+            <label for="autocomplete">Cidade</label>
+            <p-autoComplete 
+                [(ngModel)]="selectedCity" 
+                [group]="true" 
+                (completeMethod)="filterGroupedCity($event)" 
+                placeholder="Hint: type 'a'">
+                <ng-template let-group pTemplate="group">
+                    <div class="flex align-items-center">
+                        <img 
+                            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                            [class]="'mr-2 flag flag-' + group.value" 
+                            style="width: 20px" />
+                        <span>{{ group.label }}</span>
+                    </div>
+                </ng-template>
+            </p-autoComplete>
+        </div> -->
+
+        <div class="flex flex-column gap-2">
+            <label for="secretaria">Imei</label>
+            <input 
+                pInputText
+                id="secretaria" 
+                aria-describedby="username-help" 
+                [(ngModel)]="value" />
+        </div>
+
+        <!-- <div class="flex flex-column gap-2">
+            <label for="integeronly">Quantidade de aparelhos</label>
+            <p-inputNumber 
+                inputId="integeronly" 
+                [(ngModel)]="input_number" /> 
+        </div> -->
+    </div>
+</div>

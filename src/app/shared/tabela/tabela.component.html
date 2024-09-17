@@ -1,0 +1,46 @@
+<p-table [value]="lote" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Numero Lote</th>
+      <th>Secretaria</th>
+      <th>Quantidade de Aparelhos</th>
+      <th><p-button (onClick)="showDialog()" label="Novo" /></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-lote>
+    <tr>
+      <td>{{ lote.id }}</td>
+      <td>{{ lote.num_lote }}</td>
+      <td>{{ lote.secretaria }}</td>
+      <td>{{ lote.quantidadeAparelhos }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+  
+
+<!-- Modal novo item -->
+<div class="modal-new-item">
+    <p-dialog  [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }">
+                          
+                          <!-- ANTIGO MODAL -->
+      <!-- <div class="flex align-items-center gap-3 mb-3" >
+          <label for="secretaria" class="font-semibold w-6rem">Secretaria</label>
+          <input pInputText id="secretaria" class="flex-auto" autocomplete="off" />
+      </div>
+      <div class="flex align-items-center gap-3 mb-3" >
+          <label for="num_lote" class="font-semibold w-6rem">Numero do lote</label>
+          <input pInputText id="num_lote" class="flex-auto" autocomplete="off" />
+      </div>
+      <div class="flex align-items-center gap-3 mb-5">
+          <label for="imei" class="font-semibold w-6rem">Imei</label>
+          <input pInputText id="imei" class="flex-auto" autocomplete="off" />
+      </div>
+      <div class="flex justify-content-end gap-2">
+          <p-button label="Cancelar" severity="secondary" (onClick)="visible = false" />
+          <p-button label="Salvar" (onClick)="visible = false" />
+      </div> -->
+
+      <app-cadastro-generico [titulo]="titulo" [campos]="campos" [componente]="componente"></app-cadastro-generico>
+  </p-dialog>
+</div>

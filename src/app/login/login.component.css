@@ -1,0 +1,49 @@
+:host {
+    display: block;
+    min-height: 100vh; /* Ocupa a altura total da tela */
+    background-image: url('../../assets/img/elevador.png'); /* Caminho correto */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    height: 100vh;
+    width: 100%;
+}
+.content{
+    margin:2rem;
+}
+.btn-login{
+    margin-top: 1rem;
+}
+.register-btn{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    height: 100vh;
+    width: 100%;
+}
+.content{
+    margin:2rem;
+}
+.btn-login{
+    margin-top: 1rem;
+}
+.register-btn{
+    display: flex;
+    flex-direction: column;
+}
+
