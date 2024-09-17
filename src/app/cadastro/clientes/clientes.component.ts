@@ -4,6 +4,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FilterService, SelectItemGroup } from 'primeng/api';
 import { NavbarComponent } from '../../navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 interface CityGroup {
   label: string;

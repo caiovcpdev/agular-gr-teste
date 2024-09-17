@@ -2,7 +2,7 @@ import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';

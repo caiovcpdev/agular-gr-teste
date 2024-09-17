@@ -27,8 +27,8 @@ export class AppComponent implements  OnInit{
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       const currentRoute = this.router.url;
-      this.showNavbar = currentRoute !== '/login';
-      this.showSidebar = currentRoute !== '/login';
+      this.showNavbar = currentRoute !== '/';
+      this.showSidebar = currentRoute !== '/';
     });
   }
 }
