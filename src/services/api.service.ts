@@ -19,7 +19,7 @@ export class UsuarioService {
 
   // Exemplo de método que retorna dados de uma API
   getClientes(): Observable<Cliente> {
-    return this.http.get<Cliente>(this.apiUrl + 'cliente');
+    return this.http.get<Cliente>('https://localhost:7237/' + 'Clientes');
 
   }
   getUsuarioById(id: string): Observable<Usuario> {

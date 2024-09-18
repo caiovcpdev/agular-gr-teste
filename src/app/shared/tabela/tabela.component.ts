@@ -22,7 +22,7 @@ interface Lote {
 })
 export class TabelaComponent implements OnInit {
 
-//modal cadastro generico 
+//Modal cadastro generico 
 titulo = 'Cadastro de lote';
 componente = 'Lote';
 campos = [
