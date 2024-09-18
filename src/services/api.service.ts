@@ -13,41 +13,38 @@ import { Lote } from './Lote';
   providedIn: 'root'
 })
 
-export class UsuarioService {
-  private apiUrl = 'https://localhost:7288/Usuario';
+export class ApiService {
+  private apiUrl = 'https://localhost:7237/';
   constructor(private http: HttpClient) { }
 
   // Exemplo de método que retorna dados de uma API
   getClientes(): Observable<Cliente> {
-    return this.http.get<Cliente>('https://localhost:7237/' + 'Clientes');
+    return this.http.get<Cliente>(this.apiUrl + 'clientes');
 
-  }
-  getUsuarioById(id: string): Observable<Usuario> {
-    return this.http.get<Usuario>(this.apiUrl + `/listar/${id}`);
   }
 
   createCliente(cliente : Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.apiUrl + '/cliente', cliente);
+    return this.http.post<Cliente>(this.apiUrl + 'clientes', cliente);
   }
 
   getLogin(login : UsuarioLogin): Observable<boolean> {
-    return this.http.post<boolean>(this.apiUrl + '/login', login);
+    return this.http.post<boolean>(this.apiUrl + 'login', login);
   }
 
   getEquipamentos(): Observable<Equipamento> {
-    return this.http.get<Equipamento>(this.apiUrl + 'equipamento');
+    return this.http.get<Equipamento>(this.apiUrl + 'equipamentos');
   }
 
   createEquipamento(equipamento : Equipamento): Observable<Equipamento> {
-    return this.http.post<Equipamento>(this.apiUrl + '/equipamento', equipamento);
+    return this.http.post<Equipamento>(this.apiUrl + 'equipamentos', equipamento);
   }
 
   getLotes(): Observable<Lote> {
-    return this.http.get<Lote>(this.apiUrl + 'lote');
+    return this.http.get<Lote>(this.apiUrl + 'lotes');
   }
 
   createLote(lote : Lote): Observable<Lote> {
-    return this.http.post<Lote>(this.apiUrl + '/equipamento', lote);
+    return this.http.post<Lote>(this.apiUrl + 'lotes', lote);
   }
 
 }

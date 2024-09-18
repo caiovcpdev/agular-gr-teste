@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { CadastroGenericoComponent } from '../../cadastro-generico/cadastro-generico.component';
 
 interface Lote {
   id: number;
@@ -16,7 +15,7 @@ interface Lote {
 @Component({
   selector: 'app-tabela',
   standalone: true,
-  imports: [TableModule, CommonModule, ButtonModule, DialogModule, InputTextModule, CadastroGenericoComponent],
+  imports: [TableModule, CommonModule, ButtonModule, DialogModule, InputTextModule],
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.css']
 })

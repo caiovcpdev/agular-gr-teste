@@ -13,9 +13,10 @@ export class EquipamentosComponent {
   titulo = 'Cadastro de Equipamento'; // Título do formulário
   componente = 'Equipamento'
   campos = [
-    { id: 'modelo', label: 'Modelo', tipo: 'text', placeholder: 'Modelo' },
-    { id: 'imei', label: 'IMEI', tipo: 'text', placeholder: 'IMEI' },
+
+    { id: 'marcaModelo', label: 'Marca', tipo: 'text', placeholder: 'Marca' },
     { id: 'cor', label: 'Cor', tipo: 'text' , placeholder: 'Cor'},
-    { id: 'quantidade', label: 'Quantidade de Aparelhos', tipo: 'number', placeholder: 'Quantidade de Aparelhos' },
+    { id: 'iDCliente', label: 'Cliente', tipo: 'text' , placeholder: 'Cliente'},
+
   ];
 }

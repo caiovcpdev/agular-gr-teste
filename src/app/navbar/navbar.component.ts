@@ -28,25 +28,25 @@ export class NavbarComponent implements OnInit {
         items : [
             {
               label: 'Clientes',
-              icon: 'pi pi-user',
+              icon: 'pi pi-user-plus',
               routerLink:'/cliente'
             },
             {
-              label: 'Equipamentos',
-              icon: 'pi pi-mobile',
+              label: 'Equipamento',
+              icon: 'pi pi-user-plus',
               routerLink : '/equipamento'
             },
             {
-              label: 'Lotes',
-              icon: 'pi pi-th-large',
+              label: 'Lote',
+              icon: 'pi pi-user-plus',
               routerLink :'/lote'
-            } 
+            }
         ]
       },
       {
         label: 'Sair',
         icon: 'pi pi-sign-out',
-        routerLink: '/' 
+        routerLink: '/login'  // Navegação para Login
       }
     ];
   }

@@ -5,21 +5,17 @@ html, body {
 
 .main-container {
   display: flex;
-  height: 100vh; /* Garante que o container ocupe toda a altura da viewport */
-  padding: 0; /* Remove qualquer padding global */
+  height: 100vh; /* Ocupa 100% da altura da viewport */
 }
 
 app-menu-vertical {
-  height: 100%; /* O menu lateral ocupa 100% da altura da viewport */
-  flex: 0 0 250px; /* Largura fixa de 250px para o menu lateral */
-  overflow: auto; /* Adiciona rolagem se o conteúdo for maior que a tela */
+  height: 100%; /* Ocupa 100% da altura disponível */
+  flex: 0 0 250px; /* Ajuste a largura do menu vertical conforme necessário */
+  overflow: auto; /* Adiciona rolagem se necessário */
 }
 
 .dashboard-container {
-  flex: 1; /* O conteúdo principal ocupa o restante do espaço ao lado do menu */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alinha o conteúdo no topo da tela */
-  padding: 20px; /* Um espaçamento leve ao redor do conteúdo */
-  overflow: auto; /* Permite rolagem do conteúdo se necessário */
 }

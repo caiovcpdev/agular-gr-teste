@@ -1,11 +1,15 @@
 import { Component , Input} from '@angular/core';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common'; // Importando o CommonModule
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { ApiService } from '../../services/api.service';
+import { response } from 'express';
+import { Cliente } from '../../services/Cliente';
+import { Equipamento } from '../../services/Equipamento';
 
 
 @Component({
@@ -19,27 +23,37 @@ export class CadastroGenericoComponent {
   @Input() titulo: string = ''; // Título da tela de cadastro (Clientes, Equipamentos, Lote, etc.)
   @Input() campos: any[] = [];   // Array de objetos que descrevem os campos do formulário
   @Input() componente: string = '';
-  formData: any = {};  
+  formData: any = {};
 
+  constructor ( private apiservice: ApiService) { }
   onSave() {
     // console.log('Dados do formulário:', this.formData);
     // if (this.componente == 'Cliente') {
     //   alert('cadastro de cliente')
-    // } 
-    
+    // }
+
+
     switch (this.componente) {
-      case 'Cliente': 
-        alert('Cadastro cliente');
+      case 'Cliente':
+        this.apiservice.createCliente( this.formData).subscribe(
+          (response:Cliente) => {
+            console.log("Cliente cadastrado com sucesso!")
+          }
+        )
       break;
-    
+
       case 'Equipamento':
-        alert('Cadastro Equipamento');
+        this.apiservice.createEquipamento( this.formData).subscribe(
+          (response:Equipamento) => {
+            console.log("Equipamento cadastrado com sucesso!")
+          }
+        )
       break;
-      
+
       case 'Lote':
         alert('Cadastro Lote');
       break;
-      
+
       default:
         break;
     }

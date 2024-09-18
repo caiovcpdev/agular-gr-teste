@@ -1,7 +1,8 @@
 export interface Cliente {
     id: string;
     razaoSocial: string;
-    cidade: string;
+    uf: string;
     secretaria: string;
-    quantidade: number;
+    quantidadeEquipamento: number;
+    iMEIEquipamento: number;
 }

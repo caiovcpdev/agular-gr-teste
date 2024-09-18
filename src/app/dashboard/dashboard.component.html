@@ -1,11 +1,11 @@
-<!-- <app-navbar></app-navbar> -->
-<div class="dashboard-container" >
+<app-navbar></app-navbar>
+<div class="dashboard-container">
     <div class="content">
         <!-- TABLE -->
          <div class="users-table">
             <div class="card flex justify-content-center">
                 <p-card header="Users">
-                    <p-table [value]="data" [paginator]="true" [rows]="5">
+                    <p-table [value]="data" [paginator]="true" [rows]="10">
                         <ng-template pTemplate="header">
                           <tr>
                             <th>Nome</th>
@@ -28,7 +28,7 @@
             </div>
          </div>
 
-         <div class="card flex justify-content-center" style="padding: 2rem 0;">
+         <div class="card flex justify-content-center">
             <div class="mapa-content">
                 <p-card header="Monitoramento de agentes">
                     <app-mapa></app-mapa>
@@ -36,8 +36,6 @@
             </div>
         </div>
         <!-- CHART -->
-
-
     </div>
     <app-footer></app-footer>
 </div>

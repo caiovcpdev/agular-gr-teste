@@ -1,4 +1,5 @@
 export interface Lote {
-    id: string;
-    numero: number;
+    id: number;
+    iDCliente: number;
+    iMEIEquipamento: number;
 }

@@ -14,9 +14,10 @@ export class ClienteComponent {
   titulo = 'Cadastro Clientes';
   componente = 'Cliente';
   campos = [
-    { id: 'razao_social', label: 'Razão Social', tipo: 'text', placeholder : 'Razão Social',},
-    { id: 'cidade', label: 'Cidade', tipo: 'autocomplete', placeholder: 'Digite uma cidade' },
+    { id: 'razaoSocial', label: 'Razão Social', tipo: 'text', placeholder : 'Razão Social',},
+    { id: 'uf', label: 'UF', tipo: 'autocomplete', placeholder: 'Digite uma UF' },
     { id: 'secretaria', label: 'Secretaria', tipo: 'text',  placeholder: 'Digite uma secretaria'},
-    { id: 'quantidade', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
+    { id: 'quantidadeEquipamento', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
+    { id: 'iMEIEquipamento', label: 'Equipamento', tipo: 'number', placeholder:'12345' },
   ];
 }

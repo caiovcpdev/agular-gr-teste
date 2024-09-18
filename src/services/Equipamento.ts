@@ -1,6 +1,6 @@
 export interface Equipamento {
-    imei: string;
-    modelo: string;
+    iMEI: string;
+    marcaModelo: string;
     cor: string;
-    quantidade: string;
+    iDCliente:  number;
 }

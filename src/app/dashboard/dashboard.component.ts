@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
@@ -15,12 +15,11 @@ import { Router } from '@angular/router';
 import { MapaComponent } from '../shared/mapa/mapa.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 //api service
-import { UsuarioService } from '../../services/api.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/Usuario';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { CommunicationService } from '../../services/CommunicationService.service';
 import { Subscription } from 'rxjs';
-import { Cliente } from '../../services/Cliente';
 
 
 @Component({
@@ -82,8 +81,8 @@ export class DashboardComponent implements OnInit  {
       this.handleEvent(eventName);
     });
 
-    this.usuarioService.getClientes().subscribe(
-      (response : Cliente) => {
+    this.usuarioService.getUsuarios().subscribe(
+      (response : Usuario) => {
         this.data = response;
       },
       error => {
