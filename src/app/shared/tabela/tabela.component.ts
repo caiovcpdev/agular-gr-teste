@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { CadastroGenericoComponent } from '../cadastro-generico/cadastro-generico.component';
 
 interface Lote {
   id: number;
@@ -15,25 +16,21 @@ interface Lote {
 @Component({
   selector: 'app-tabela',
   standalone: true,
-  imports: [TableModule, CommonModule, ButtonModule, DialogModule, InputTextModule],
+  imports: [TableModule, CommonModule, ButtonModule, DialogModule, InputTextModule, CadastroGenericoComponent],
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.css']
 })
 export class TabelaComponent implements OnInit {
 
-//Modal cadastro generico 
-titulo = 'Cadastro de lote';
-componente = 'Lote';
-campos = [
-  { id: 'imei', label: 'Imei', tipo: 'text', placeholder : 'Digite o Imei do aparelho'},
-  { id: 'num_lote', label: 'Numero Lote', tipo: 'text', placeholder: 'Digite o numero do lote' },
-  { id: 'secretaria', label: 'Secretaria', tipo: 'text',  placeholder: 'Digite o nome da secretaria'},
-  { id: 'quantidade', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
-];
-
-
-
-
+  //Modal cadastro generico 
+  titulo = 'Cadastro de lote';
+  componente = 'Lote';
+  campos = [
+    { id: 'imei', label: 'Imei', tipo: 'text', placeholder : 'Digite o Imei do aparelho'},
+    { id: 'num_lote', label: 'Numero Lote', tipo: 'text', placeholder: 'Digite o numero do lote' },
+    { id: 'secretaria', label: 'Secretaria', tipo: 'text',  placeholder: 'Digite o nome da secretaria'},
+    { id: 'quantidade', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
+  ];
 
   visible: boolean = false;
 

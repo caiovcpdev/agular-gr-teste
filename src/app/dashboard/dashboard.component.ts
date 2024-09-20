@@ -17,7 +17,6 @@ import { FooterComponent } from '../shared/footer/footer.component';
 //api service
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/Usuario';
-import { NavbarComponent } from "../navbar/navbar.component";
 import { CommunicationService } from '../../services/CommunicationService.service';
 import { Subscription } from 'rxjs';
 
@@ -35,7 +34,6 @@ import { Subscription } from 'rxjs';
     ButtonModule,
     InputTextModule,
     FormsModule,
-    NavbarComponent,
     MapaComponent,
     FooterComponent
 ],

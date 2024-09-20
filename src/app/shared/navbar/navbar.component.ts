@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
-import { CommunicationService } from '../../services/CommunicationService.service';
+import { CommunicationService } from '../../../services/CommunicationService.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,12 +29,12 @@ export class NavbarComponent implements OnInit {
             {
               label: 'Clientes',
               icon: 'pi pi-user-plus',
-              routerLink:'/cliente'
+              routerLink:'/cliente/criar'
             },
             {
               label: 'Equipamento',
               icon: 'pi pi-user-plus',
-              routerLink : '/equipamento'
+              routerLink : '/equipamento/criar'
             },
             {
               label: 'Lote',

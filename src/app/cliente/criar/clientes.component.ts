@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CadastroGenericoComponent } from '../cadastro-generico/cadastro-generico.component'; // Componente Genérico
+import { CadastroGenericoComponent } from '../../shared/cadastro-generico/cadastro-generico.component'; // Componente Genérico
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 
@@ -10,7 +10,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
   imports: [CadastroGenericoComponent, InputTextModule, InputNumberModule],
   templateUrl: './clientes.component.html',
 })
-export class ClienteComponent {
+export class CriarClienteComponent {
   titulo = 'Cadastro Clientes';
   componente = 'Cliente';
   campos = [

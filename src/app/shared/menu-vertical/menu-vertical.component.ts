@@ -24,13 +24,13 @@ export class MenuVerticalComponent implements OnInit {
                 {
                     label: 'Cadastrar',
                     icon: 'pi pi-plus',
-                    routerLink: 'cliente'
+                    routerLink:'/cliente/criar'
                 },
-                // {
-                //     label: 'Listar',
-                //     icon: 'pi pi-search',
-                //     routerLink: 'cliente/listar'
-                // }
+                {
+                    label: 'Listar',
+                    icon: 'pi pi-search',
+                    routerLink: '/cliente/listar'
+                }
             ]
         },
         {
@@ -40,13 +40,13 @@ export class MenuVerticalComponent implements OnInit {
                 {
                     label: 'Cadastrar',
                     icon: 'pi pi-plus',
-                    routerLink: 'equipamento'
+                    routerLink: '/equipamento/criar'
                 },
-                // {
-                //     label: 'Listar',
-                //     icon: 'pi pi-search',
-                //     routerLink: 'equipamento/listar'
-                // }
+                {
+                    label: 'Listar',
+                    icon: 'pi pi-search',
+                    routerLink: '/equipamento/listar'
+                }
             ]
         },
         {
@@ -56,23 +56,14 @@ export class MenuVerticalComponent implements OnInit {
               {
                   label: 'Cadastrar',
                   icon: 'pi pi-plus',
-                  routerLink: 'lote'
+                  routerLink: 'lote/cadastrar'
               },
-            //   {
-            //       label: 'Listar',
-            //       icon: 'pi pi-search',
-            //       routerLink: 'lote/listar'
-            //   }
+              {
+                  label: 'Listar',
+                  icon: 'pi pi-search',
+                  routerLink: 'lote/listar'
+              }
           ]
-      },
-      {
-        label: 'Conta',
-        icon: 'pi pi-cog',
-        items: [{
-            label:'Sair',
-            icon: 'pi pi pi-sign-out',
-            routerLink:'/'
-        }]
       }
     ];
   }

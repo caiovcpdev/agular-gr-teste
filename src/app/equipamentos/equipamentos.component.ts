@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CadastroGenericoComponent } from '../cadastro-generico/cadastro-generico.component'; // Componente Genérico
+import { CadastroGenericoComponent } from '../shared/cadastro-generico/cadastro-generico.component'; // Componente Genérico
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 @Component({
