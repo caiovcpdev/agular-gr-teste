@@ -1,0 +1,63 @@
+<!-- cadastro-generico.component.html -->
+<div class="dashboard-container">
+    <p-panel header="{{ titulo }}" class="form-panel">
+        <div class="form-grid-container">
+            <ng-container *ngFor="let campo of campos">
+                <div class="form-field">
+                    <label [for]="campo.id">{{ campo.label }}</label>
+
+                    <!-- Input para texto -->
+                    <input 
+                        *ngIf="campo.tipo === 'text'"
+                        pInputText 
+                        [id]="campo.id"
+                        [(ngModel)]="formData[campo.id]" 
+                        [placeholder]="campo.placeholder"/>
+
+                    <!-- AutoComplete para selecionar cidade -->
+                    <p-autoComplete 
+                        *ngIf="campo.tipo === 'autocomplete'" 
+                        [(ngModel)]="formData[campo.id]" 
+                        [suggestions]="campo.suggestions"
+                        [group]="campo.group"
+                        (completeMethod)="campo.completeMethod"
+                        [placeholder]="campo.placeholder">
+                        <ng-template let-group pTemplate="group">
+                            <div class="flex align-items-center">
+                                <img 
+                                    [src]="campo.imgSrc"
+                                    [class]="'mr-2 flag flag-' + group.value" 
+                                    style="width: 20px" />
+                                <span>{{ group.label }}</span>
+                            </div>
+                        </ng-template>
+                    </p-autoComplete>
+
+                    <!-- Input para números -->
+                    <p-inputNumber 
+                        *ngIf="campo.tipo === 'number'" 
+                        [inputId]="campo.id"
+                        [(ngModel)]="formData[campo.id]" 
+                        [placeholder]="campo.placeholder"/>
+
+
+                    <!-- Dropdown -->
+                    <p-dropdown 
+                    *ngIf="campo.tipo === 'dropdown'"
+                    [options]="campo.option" 
+                    [(ngModel)]="formData[campo.id]" 
+                    [placeholder]="campo.placeholder"
+                    [id]="campo.id"
+                    optionLabel="label" 
+                    optionValue="value">
+                </p-dropdown>
+                </div>
+            </ng-container>
+
+            <!-- Botão de salvar -->
+            <div class="form-field form-button">
+                <button pButton type="button" label="Salvar" (click)="onSave()"></button>
+            </div>
+        </div>
+    </p-panel>
+</div>
