@@ -24,21 +24,42 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: 'Cadastro',
-        icon: 'pi pi-user-plus',
+        icon: 'pi pi-plus-circle',
         items : [
             {
               label: 'Clientes',
-              icon: 'pi pi-user-plus',
+              icon: 'pi pi-user',
               routerLink:'/cliente/criar'
             },
             {
               label: 'Equipamento',
-              icon: 'pi pi-user-plus',
+              icon: 'pi pi-mobile',
               routerLink : '/equipamento/criar'
             },
             {
               label: 'Lote',
-              icon: 'pi pi-user-plus',
+              icon: 'pi pi-objects-column',
+              routerLink :'/lote'
+            }
+        ]
+      },
+      {
+        label: 'Listagem',
+        icon: 'pi pi-search',
+        items : [
+            {
+              label: 'Clientes',
+              icon: 'pi pi-user',
+              routerLink:'/cliente/listar'
+            },
+            {
+              label: 'Equipamento',
+              icon: 'pi pi-mobile',
+              routerLink : '/equipamento/listar'
+            },
+            {
+              label: 'Lote',
+              icon: 'pi pi-objects-column',
               routerLink :'/lote'
             }
         ]

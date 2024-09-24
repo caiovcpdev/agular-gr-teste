@@ -1,7 +1,7 @@
-<div class="card flex justify-content-center">
-    <p-card>
-       <app-tabela-generica [colunas]="colunasCliente" [dados]="clientesDados"></app-tabela-generica>
-    </p-card>
-</div>
-
-
+<div class="card flex justify-content-center" style="margin: 1rem;">
+    <app-tabela-generica 
+      [colunas]="colunasCliente" 
+      [dados]="clientesDados" >
+      (delete)="onDelete($event)">
+    </app-tabela-generica>
+  </div>

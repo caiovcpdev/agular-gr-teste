@@ -1,12 +1,14 @@
-:host {
+:host{
     display: block;
-    min-height: 100vh; /* Ocupa a altura total da tela */
-    background-image: url('../../assets/img/elevador.png'); /* Caminho correto */
+    min-height: 100vh; 
+    background-image: url('../../assets/img/bg-ondas.svg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
+.content{
+    margin:2rem;
+}
 .login-container {
     display: flex;
     flex-direction: column;
@@ -15,35 +17,18 @@
     height: 100vh;
     width: 100%;
 }
-.content{
-    margin:2rem;
-}
 .btn-login{
     margin-top: 1rem;
 }
+
+::ng-deep .btn-login button {
+    background-color: rgb(3, 17, 80);
+    border: rgb(3, 17, 80);
+}
+
 .register-btn{
     display: flex;
     flex-direction: column;
 }
 
-
-
-.login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Horizontal center */
-    align-items: center;     /* Vertical center */
-    height: 100vh;
-    width: 100%;
-}
-.content{
-    margin:2rem;
-}
-.btn-login{
-    margin-top: 1rem;
-}
-.register-btn{
-    display: flex;
-    flex-direction: column;
-}
 

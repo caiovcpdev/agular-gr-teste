@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TabelaComponent } from '../../shared/tabela/tabela.component';
 import { CardModule } from 'primeng/card';
 import { TabelaGenericaComponent } from '../../shared/tabela-generica/tabela-generica.component';
 import { ApiService } from '../../../services/api.service';
@@ -10,7 +9,7 @@ import { Cliente } from '../../../services/Cliente';
 @Component({
   selector: 'app-lote',
   standalone: true,
-  imports: [TabelaComponent, CardModule, TabelaGenericaComponent],
+  imports: [CardModule, TabelaGenericaComponent],
   templateUrl: './lote.component.html',
   styleUrl: './lote.component.css'
 })

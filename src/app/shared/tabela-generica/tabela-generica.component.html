@@ -15,7 +15,7 @@
       <!-- Cabeçalho personalizado com botão de exportação -->
       <ng-template pTemplate="caption">
           <div style="text-align: left">
-              <p-button 
+              <p-button class="btn-excel"
                   icon="pi pi-external-link" 
                   label="Exportar" 
                   (onClick)="dt.exportCSV()" />
@@ -33,6 +33,8 @@
                     [display]="'menu'">
                   </p-columnFilter>
               </th>
+              <th></th>
+              <th></th>
           </tr>
       </ng-template>
       
@@ -42,6 +44,8 @@
               <td *ngFor="let col of columns">
                   {{ item[col.field] }}
               </td>
+              <td (click)="editar(item)"><i class="pi pi-pencil" style="color: #708090"></i></td>
+              <td (click)="deletar(item)"><i class="pi pi-trash" style="color: #7c2626"></i></td>
           </tr>
       </ng-template>
       

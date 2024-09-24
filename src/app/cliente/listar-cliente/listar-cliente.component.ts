@@ -38,20 +38,36 @@ export class ListarClienteComponent implements OnInit {
       private apiService: ApiService
     ) { }
 
+    // onEdit(item: any) {
+    //   alert('Editar: '+ item.razaoSocial);[
+    //   console.log(item)
+    //   ]
+    // }
+  
+    onDelete(teste : any) {
+      alert(teste);
+    }
+
   ngOnInit() {
     this.apiService.getClientes().subscribe(
       (response: any) => {
+        console.log('API Response:', response);
         
         this.clientesDados = response.map((cliente: Cliente) => ({
+          id: cliente.id,
           razaoSocial: cliente.razaoSocial,
           uf: cliente.uf,
           secretaria: cliente.secretaria
         }));
+        
+      
+        console.log('Clientes Dados:', this.clientesDados);
       },
       error => {
-        console.error('Erro ao buscar usuarios', error);
+        console.error('Erro ao buscar clientes', error);
       }
     );
   }
+
 
 }

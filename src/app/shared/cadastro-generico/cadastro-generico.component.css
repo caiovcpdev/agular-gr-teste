@@ -1,10 +1,11 @@
 /* Centraliza o conteúdo do painel */
-.dashboard-container {
+.cadastro-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Centraliza verticalmente */
   padding: 20px;
+  opacity: 0.80;
   }
 
 /* Painel do formulário com sombreamento */
@@ -49,6 +50,11 @@ button {
   height: 40px;
 }
 
+::ng-deep button {
+  background-color: rgb(3, 17, 80);
+  border: rgb(3, 17, 80);
+}
+
 /* Garante que o formulário seja alinhado no topo do dashboard */
 .dashboard-container {
   display: flex;
@@ -57,3 +63,4 @@ button {
   padding: 20px;
   height: 100%;
 }
+
