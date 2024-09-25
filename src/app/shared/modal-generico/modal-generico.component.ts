@@ -28,7 +28,7 @@ export class ModalGenericoComponent implements OnInit {
 
   showModal(data:any) {
     this.visible = true;
-    this.formData = data
+    this.formData = data;
   }
 
   save() {

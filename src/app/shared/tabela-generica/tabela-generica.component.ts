@@ -30,12 +30,12 @@ export class TabelaGenericaComponent implements OnInit {
   globalFilterFields: string[] = [];
 
   modalFields = [
-    { id: 'id', label: 'id', tipo: 'number', placeholder : 'ID'},
     { id: 'razaoSocial', label: 'Razão Social', tipo: 'text', placeholder : 'Razão Social'},
     { id: 'uf', label: 'UF', tipo: 'text', placeholder : 'Digite um estado'},
     { id: 'secretaria', label: 'Secretaria', tipo: 'text',  placeholder: 'Digite uma secretaria'},
     { id: 'quantidadeEquipamento', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
-    { id: 'iMEIEquipamento', label: 'Equipamento', tipo: 'number', placeholder:'12345' }
+    { id: 'iMEIEquipamento', label: 'Equipamento', tipo: 'number', placeholder:'12345' },
+    { id: 'id', label: '', tipo: 'hidden', placeholder : 'ID'}
   ];
 
   constructor(
@@ -48,7 +48,6 @@ export class TabelaGenericaComponent implements OnInit {
   }
 
   handleSave(data: any) {
-    //console.log('Data saved:', data);
     this.apiService.updateCliente(data).subscribe(
       (response: any) => {
         console.log('API Response:', response);

@@ -1,16 +1,16 @@
 <p-dialog header="{{ titulo }}" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }">
-    <span class="p-text-secondary block mb-5">Update your information.</span>
+    <span class="p-text-secondary block mb-5">Atualizar infromações.</span>
     <div class="form-grid-container"> <!-- Adicionando um contêiner para grid -->
-        <div class="flex align-items-center gap-3 mb-3" *ngFor="let campo of campos">
-            <label [for]="campo.id" class="font-semibold w-6rem">{{ campo.label }}</label>
-
+        <div class="form-grid-item" *ngFor="let campo of campos">
+            <label [for]="campo.id" class="font-semibold">{{ campo.label }}</label>
             <!-- Input para texto -->
             <input 
                 *ngIf="campo.tipo === 'text'"
                 pInputText 
                 [id]="campo.id"
                 [(ngModel)]="formData[campo.id]" 
-                [placeholder]="campo.placeholder"/>
+                [placeholder]="campo.placeholder"
+                class="form-field"/>
 
             <!-- AutoComplete para selecionar cidade -->
             <p-autoComplete 
@@ -18,7 +18,8 @@
                 [(ngModel)]="formData[campo.id]" 
                 [suggestions]="campo.suggestions"
                 (completeMethod)="campo.completeMethod"
-                [placeholder]="campo.placeholder">
+                [placeholder]="campo.placeholder"
+                class="form-field">
             </p-autoComplete>
 
             <!-- Input para números -->
@@ -26,7 +27,8 @@
                 *ngIf="campo.tipo === 'number'" 
                 [inputId]="campo.id"
                 [(ngModel)]="formData[campo.id]" 
-                [placeholder]="campo.placeholder"/>
+                [placeholder]="campo.placeholder"
+                class="form-field"/>
 
             <!-- Dropdown -->
             <p-dropdown 
@@ -36,7 +38,8 @@
                 [placeholder]="campo.placeholder"
                 [id]="campo.id"
                 optionLabel="label" 
-                optionValue="value">
+                optionValue="value"
+                class="form-field">
             </p-dropdown>
         </div>
     </div>

@@ -1,61 +1,67 @@
 /* Centraliza o conteúdo do painel */
 .cadastro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Centraliza verticalmente */
-    padding: 20px;
-    opacity: 0.80;
-  }
-  
-  /* Painel do formulário com sombreamento */
-  .form-panel {
-    width: 100%;
-    max-width: 700px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
-    border-radius: 8px; /* Bordas arredondadas */
-  }
-  
-  /* Organiza os campos em 2 colunas */
-  .form-grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Define duas colunas de tamanhos iguais */
-    gap: 20px; /* Espaçamento entre os campos */
-    padding: 20px;
-  }
-  
-  /* Ajusta os campos dentro de cada célula */
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    width: 100%; /* Garante que os inputs preencham a célula */
-  }
-  
-  /* Centraliza o botão e ajusta o tamanho */
-  .form-button {
-    grid-column: span 2; /* Faz o botão ocupar a largura das duas colunas */
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  button {
-    width: 150px; /* Largura do botão */
-    height: 40px; /* Altura do botão */
-  }
-  
-  ::ng-deep button {
-    background-color: rgb(3, 17, 80); /* Cor de fundo do botão */
-    border: none; /* Remove borda padrão */
-    color: white; /* Cor do texto do botão */
-  }
-  
-  /* Garante que o formulário seja alinhado no topo do dashboard */
-  .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 20px;
-    height: 100%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  opacity: 0.80;
+}
+
+/* Painel do formulário com sombreamento */
+.form-panel {
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Organiza os campos em 2 colunas */
+.form-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Define duas colunas de tamanhos iguais */
+  gap: 20px; /* Espaçamento entre os campos */
+  padding: 20px;
+}
+
+/* Ajusta os campos dentro de cada célula */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Garante que os inputs preencham a célula */
+}
+
+/* Estilo para o label e input juntos */
+.form-grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centraliza o botão e ajusta o tamanho */
+.form-button {
+  grid-column: span 2; /* Faz o botão ocupar a largura das duas colunas */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  width: 150px; /* Largura do botão */
+  height: 40px; /* Altura do botão */
+}
+
+::ng-deep button {
+  background-color: rgb(3, 17, 80); /* Cor de fundo do botão */
+  border: none; /* Remove borda padrão */
+  color: white; /* Cor do texto do botão */
+  margin: 5px;
+}
+
+/* Garante que o formulário seja alinhado no topo do dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  height: 100%;
+}
