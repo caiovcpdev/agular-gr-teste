@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { TabelaGenericaComponent } from '../../shared/tabela-generica/tabela-generica.component';
-import { ApiService } from '../../../services/api.service';
-import { Equipamento } from '../../../services/Equipamento';
-import { Cliente } from '../../../services/Cliente';
+import { TabelaGenericaComponent } from '../shared/tabela-generica/tabela-generica.component';
+import { ApiService } from '../../services/api.service';
+import { Equipamento } from '../../services/Equipamento';
+import { Cliente } from '../../services/Cliente';
 
 
 @Component({

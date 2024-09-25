@@ -48,6 +48,12 @@
               <td (click)="deletar(item)"><i class="pi pi-trash" style="color: #7c2626"></i></td>
           </tr>
       </ng-template>
-      
   </p-table>
 </p-panel>
+
+<app-modal-generico 
+    [titulo]="'Edit Profile'"
+    [campos]="modalFields"
+    (onSave)="handleSave($event)"
+    (onCancel)="handleCancel()">
+</app-modal-generico>

@@ -16,21 +16,27 @@ import { Lote } from './Lote';
 export class ApiService {
   private apiUrl = 'https://localhost:7237/';
   constructor(private http: HttpClient) { }
-
-  // Exemplo de método que retorna dados de uma API
-  getClientes(): Observable<Cliente> {
-    return this.http.get<Cliente>(this.apiUrl + 'clientes');
-
-  }
-
-  createCliente(cliente : Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.apiUrl + 'clientes', cliente);
-  }
-
+  
   getLogin(login : UsuarioLogin): Observable<boolean> {
     return this.http.post<boolean>(this.apiUrl + 'login', login);
   }
 
+  //Clientes
+  getClientes(): Observable<Cliente> {
+    return this.http.get<Cliente>(this.apiUrl + 'clientes');
+  }
+  createCliente(cliente : Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.apiUrl + 'clientes', cliente);
+  }
+  updateCliente(cliente : Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${this.apiUrl}clientes/${cliente.id}`, cliente);
+  }
+  deleteCliente(cliente : Cliente): Observable<Cliente> {
+    return this.http.delete<Cliente>(`${this.apiUrl}clientes/${cliente.id}`); 
+  }
+
+
+  //Equipamentos
   getEquipamentos(): Observable<Equipamento> {
     return this.http.get<Equipamento>(this.apiUrl + 'equipamentos');
   }
@@ -39,6 +45,8 @@ export class ApiService {
     return this.http.post<Equipamento>(this.apiUrl + 'equipamentos', equipamento);
   }
 
+
+  //Lotes
   getLotes(): Observable<Lote> {
     return this.http.get<Lote>(this.apiUrl + 'lotes');
   }

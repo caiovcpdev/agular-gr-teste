@@ -1,7 +1,8 @@
 <div class="card flex justify-content-center" style="margin: 1rem;">
     <app-tabela-generica 
       [colunas]="colunasCliente" 
-      [dados]="clientesDados" >
-      (delete)="onDelete($event)">
+      [dados]="clientesDados" 
+      [componentePai] = "nomeComponente">
     </app-tabela-generica>
   </div>
+  <!-- <app-modal-generico [modalToggle]="modalStatus"></app-modal-generico> -->

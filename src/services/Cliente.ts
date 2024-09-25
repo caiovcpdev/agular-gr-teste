@@ -1,4 +1,4 @@
-export interface Cliente {
+export interface Cliente { //export = exportar
     id: string;
     razaoSocial: string;
     uf: string;

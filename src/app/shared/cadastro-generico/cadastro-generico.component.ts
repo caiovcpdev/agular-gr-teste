@@ -16,19 +16,18 @@ import { DropdownModule } from 'primeng/dropdown';
 @Component({
   selector: 'app-cadastro-generico',
   standalone: true,
-  imports: [AutoCompleteModule, InputTextModule, FormsModule, InputNumberModule, CommonModule, CardModule, ButtonModule, PanelModule,DropdownModule],
+  imports: [AutoCompleteModule, InputTextModule, FormsModule, InputNumberModule, CommonModule, CardModule, ButtonModule, PanelModule, DropdownModule],
   templateUrl: './cadastro-generico.component.html',
   styleUrl: './cadastro-generico.component.css'
 })
 export class CadastroGenericoComponent {
-  @Input() titulo: string = ''; // Título da tela de cadastro (Clientes, Equipamentos, Lote, etc.)
-  @Input() campos: any[] = [];   // Array de objetos que descrevem os campos do formulário
+  @Input() titulo: string = ''; 
+  @Input() campos: any[] = []; 
   @Input() componente: string = '';
   formData: any = {};
 
   constructor ( private apiservice: ApiService) { }
   onSave() {
- 
     switch (this.componente) {
       case 'Cliente':
         this.apiservice.createCliente( this.formData).subscribe(
