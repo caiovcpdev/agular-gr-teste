@@ -1,13 +1,3 @@
-/* Centraliza o conteúdo do painel */
-.cadastro-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  opacity: 0.80;
-}
-
 /* Painel do formulário com sombreamento */
 .form-panel {
   width: 100%;

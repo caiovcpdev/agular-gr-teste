@@ -40,9 +40,14 @@ export class ApiService {
   getEquipamentos(): Observable<Equipamento> {
     return this.http.get<Equipamento>(this.apiUrl + 'equipamentos');
   }
-
   createEquipamento(equipamento : Equipamento): Observable<Equipamento> {
     return this.http.post<Equipamento>(this.apiUrl + 'equipamentos', equipamento);
+  }
+  updateEquipamento(equipamento : Equipamento): Observable<Equipamento> {
+    return this.http.put<Equipamento>(`${this.apiUrl}equipamentos/${equipamento.imei}`, equipamento);
+  }
+  deleteEquipamento(equipamento : Equipamento): Observable<Equipamento> {
+    return this.http.delete<Equipamento>(`${this.apiUrl}equipamentos/${equipamento.imei}`);
   }
 
 

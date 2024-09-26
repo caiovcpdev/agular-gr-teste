@@ -12,8 +12,11 @@ import { Equipamento } from '../../../services/Equipamento';
   styleUrl: './listar-equipamentos.component.css'
 })
 export class ListarEquipamentosComponent  implements OnInit{
+  
+  nomeComponente= 'Equipamento';
+  
   colunasEquipamentos = [
-    { field: 'IMEI', header: 'IMEI' },
+    { field: 'imei', header: 'IMEI' },
     { field: 'MarcaModelo', header: 'Marca Modelo' },
     { field: 'COR', header: 'Cor' },
     { field: 'IDCliente', header: 'IDCliente' }
@@ -30,7 +33,7 @@ export class ListarEquipamentosComponent  implements OnInit{
       (response: any) => {
         
         this.equipamentosDados = response.map((equipamento: Equipamento) => ({
-          IMEI: equipamento.imei,
+          imei: equipamento.imei,
           MarcaModelo: equipamento.marcaModelo,
           COR: equipamento.cor,
           IDCliente: equipamento.idCliente

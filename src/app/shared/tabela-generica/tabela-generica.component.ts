@@ -6,17 +6,18 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
-import { Router } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
 import { ModalGenericoComponent } from '../modal-generico/modal-generico.component';
-import { Cliente } from '../../../services/Cliente';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast'; 
 
 @Component({
   selector: 'app-tabela-generica',
   standalone: true,
-  imports: [TableModule, CommonModule, ButtonModule, DialogModule, InputTextModule, CadastroGenericoComponent, PanelModule, ModalGenericoComponent],
+  imports: [TableModule, CommonModule, ButtonModule, DialogModule, InputTextModule, CadastroGenericoComponent, PanelModule, ModalGenericoComponent, ToastModule],
   templateUrl: './tabela-generica.component.html',
-  styleUrls: ['./tabela-generica.component.css'] // Corrigido para styleUrls
+  styleUrls: ['./tabela-generica.component.css'],
+  providers : [MessageService]
 })
 export class TabelaGenericaComponent implements OnInit {
   @Input() dados: any[] = [];
@@ -28,19 +29,11 @@ export class TabelaGenericaComponent implements OnInit {
   
   selectedItems: any[] = [];
   globalFilterFields: string[] = [];
-
-  modalFields = [
-    { id: 'razaoSocial', label: 'Razão Social', tipo: 'text', placeholder : 'Razão Social'},
-    { id: 'uf', label: 'UF', tipo: 'text', placeholder : 'Digite um estado'},
-    { id: 'secretaria', label: 'Secretaria', tipo: 'text',  placeholder: 'Digite uma secretaria'},
-    { id: 'quantidadeEquipamento', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
-    { id: 'iMEIEquipamento', label: 'Equipamento', tipo: 'number', placeholder:'12345' },
-    { id: 'id', label: '', tipo: 'hidden', placeholder : 'ID'}
-  ];
+  modalFields: any[] = [];
 
   constructor(
-    private router: Router,
-    private apiService : ApiService
+    private apiService : ApiService,
+    private messageService: MessageService
   ) {}
 
   openModal(data: any) {
@@ -48,17 +41,31 @@ export class TabelaGenericaComponent implements OnInit {
   }
 
   handleSave(data: any) {
-    this.apiService.updateCliente(data).subscribe(
-      (response: any) => {
-        console.log('API Response:', response);
-        alert('Alteração feita com sucesso!');
-      },
-      (error: any) => {
-        console.error('Erro ao excluir:', error);
-        alert('Ocorreu um erro ao tentar atualizar o item.');
-      }
-    );
-  
+    if (this.componentePai === 'Cliente') {
+      this.apiService.updateCliente(data).subscribe(
+        (response: any) => {
+          console.log('API Response:', response);
+          this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Alteração bem sucedida!' });
+        },
+        (error: any) => {
+          console.error('Erro ao excluir:', error);
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Alteração bem mal sucedida!' });
+        }
+      );  
+    }
+    
+    if (this.componentePai === 'Equipamento') {
+      this.apiService.updateEquipamento(data).subscribe(
+        (response: any) => {
+          this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Alteração bem sucedida!' });
+        },
+        (error: any) => {
+          console.error('Erro ao excluir:', error);
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Alteração bem mal sucedida!' });
+        }
+      );  
+    }
+
   }
 
   handleCancel() {
@@ -72,15 +79,27 @@ export class TabelaGenericaComponent implements OnInit {
   }
 
   editar(item: any) {
-    //alert('Editar: ' + JSON.stringify(item));
     if (this.componentePai == 'Cliente') {
-        this.openModal(item);
+      this.modalFields = [
+        { id: 'razaoSocial', label: 'Razão Social', tipo: 'text', placeholder : 'Razão Social'},
+        { id: 'uf', label: 'UF', tipo: 'text', placeholder : 'Digite um estado'},
+        { id: 'secretaria', label: 'Secretaria', tipo: 'text',  placeholder: 'Digite uma secretaria'},
+        { id: 'quantidadeEquipamento', label: 'Quantidade de aparelhos', tipo: 'number', placeholder:'12345' },
+        { id: 'iMEIEquipamento', label: 'Equipamento', tipo: 'number', placeholder:'12345' },
+        { id: 'id', label: '', tipo: 'hidden', placeholder : 'ID'}
+      ]; 
     }
+
     if (this.componentePai == 'Equipamento') {
-      alert('mudar equipamento');
+      console.log(item);
+      this.modalFields = [
+        { id: 'imei', label: 'iMei', tipo: 'number', placeholder: 'IMEI' },
+        { id: 'MarcaModelo', label: 'Marca', tipo: 'text', placeholder: 'Marca' },
+        { id: 'COR', label: 'Cor', tipo: 'text' , placeholder: 'Cor'},
+        { id: 'IDCliente', label: 'Cliente', tipo: 'text' , placeholder: 'Cliente'}
+      ];
     }
-
-
+    this.openModal(item);
   }
 
   deletar(item: any) {
@@ -90,6 +109,23 @@ export class TabelaGenericaComponent implements OnInit {
       if (confirmDelete) {
       
         this.apiService.deleteCliente(item).subscribe(
+          (response: any) => {
+            this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Exclusão bem sucedida!' });
+          },
+          (error: any) => {
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao tentar excluir o item.' });
+            console.error('Erro ao excluir:', error);
+          }
+        );
+      }
+    }
+
+    if (this.componentePai === 'Equipamento') { 
+      const confirmDelete = confirm(`Tem certeza que deseja deletar: ${item.MarcaModelo} : ${item.IMEI}?`);
+      
+      if (confirmDelete) {
+      
+        this.apiService.deleteEquipamento(item).subscribe(
           (response: any) => {
             console.log('API Response:', response);
             alert('Exclusão feita com sucesso!');
@@ -102,6 +138,8 @@ export class TabelaGenericaComponent implements OnInit {
       }
     }
   }
+
+  
 
   exportarCSV() {
     // Exemplo de chamada ao método de exportação CSV do PrimeNG

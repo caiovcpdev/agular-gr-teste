@@ -2,3 +2,10 @@
     background-color: rgb(3, 17, 80);
     border: rgb(3, 17, 80);
 }
+
+::ng-deep .custom-toast {
+    position: fixed !important;
+    z-index: 99999 !important; /* Certifique-se de que o z-index é suficientemente alto */
+    top: 20px; /* Define a posição no topo da página */
+    right: 20px; /* Define a posição à direita */
+}
