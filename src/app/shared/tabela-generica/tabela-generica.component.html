@@ -33,8 +33,8 @@
                     [display]="'menu'">
                   </p-columnFilter>
               </th>
-              <th></th>
-              <th></th>
+              <th *ngIf="!isOcultar"></th>
+              <th *ngIf="!isOcultar"></th>
           </tr>
       </ng-template>
       
@@ -44,8 +44,8 @@
               <td *ngFor="let col of columns">
                   {{ item[col.field] }}
               </td>
-              <td (click)="editar(item)"><i class="pi pi-pencil" style="color: #708090"></i></td>
-              <td (click)="deletar(item)"><i class="pi pi-trash" style="color: #7c2626"></i></td>
+              <td *ngIf="!isOcultar" (click)="editar(item)"><i class="pi pi-pencil" style="color: #708090"></i></td>
+              <td *ngIf="!isOcultar" (click)="deletar(item)"><i class="pi pi-trash" style="color: #7c2626"></i></td>
             </tr>
         </ng-template>
     </p-table>

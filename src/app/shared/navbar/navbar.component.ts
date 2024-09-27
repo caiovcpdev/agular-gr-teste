@@ -36,11 +36,11 @@ export class NavbarComponent implements OnInit {
               icon: 'pi pi-mobile',
               routerLink : '/equipamento/criar'
             },
-            {
-              label: 'Lote',
-              icon: 'pi pi-objects-column',
-              routerLink :'/lote'
-            }
+            // {
+            //   label: 'Lote',
+            //   icon: 'pi pi-objects-column',
+            //   routerLink :'/lote'
+            // }
         ]
       },
       {
@@ -67,7 +67,7 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Sair',
         icon: 'pi pi-sign-out',
-        routerLink: '/login'  // Navegação para Login
+        routerLink: '/'  // Navegação para Login
       }
     ];
   }

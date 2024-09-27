@@ -23,6 +23,7 @@ export class TabelaGenericaComponent implements OnInit {
   @Input() dados: any[] = [];
   @Input() colunas: any[] = [];
   @Input() componentePai: string = '';
+  @Input() isOcultar : boolean = false;
 
   @Output() delete = new EventEmitter<any>();
   @ViewChild(ModalGenericoComponent) modalGenerico!: ModalGenericoComponent;
@@ -30,6 +31,7 @@ export class TabelaGenericaComponent implements OnInit {
   selectedItems: any[] = [];
   globalFilterFields: string[] = [];
   modalFields: any[] = [];
+  
 
   constructor(
     private apiService : ApiService,
@@ -40,6 +42,45 @@ export class TabelaGenericaComponent implements OnInit {
     this.modalGenerico.showModal(data);
   }
 
+
+  deletar(item: any) {
+    if (this.componentePai === 'Cliente') { 
+      const confirmDelete = confirm(`Tem certeza que deseja deletar: ${item.razaoSocial} : ${item.id}?`);
+      
+      if (confirmDelete) {
+      
+        this.apiService.deleteCliente(item).subscribe(
+          (response: any) => {
+            this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Exclusão bem sucedida!' });
+          },
+          (error: any) => {
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao tentar excluir o item.' });
+            console.error('Erro ao excluir:', error);
+          }
+        );
+      }
+    }
+
+    if (this.componentePai === 'Equipamento') { 
+      const confirmDelete = confirm(`Tem certeza que deseja deletar: ${item.MarcaModelo} : ${item.imei}?`);
+      
+      if (confirmDelete) {
+      
+        this.apiService.deleteEquipamento(item).subscribe(
+          (response: any) => {
+            console.log('API Response:', response);
+            alert('Exclusão feita com sucesso!');
+          },
+          (error: any) => {
+            console.error('Erro ao excluir:', error);
+            alert('Ocorreu um erro ao tentar excluir o item.');
+          }
+        );
+      }
+    }
+  }
+
+
   handleSave(data: any) {
     if (this.componentePai === 'Cliente') {
       this.apiService.updateCliente(data).subscribe(
@@ -49,7 +90,7 @@ export class TabelaGenericaComponent implements OnInit {
         },
         (error: any) => {
           console.error('Erro ao excluir:', error);
-          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Alteração bem mal sucedida!' });
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Alteração  mal sucedida!' });
         }
       );  
     }
@@ -61,7 +102,7 @@ export class TabelaGenericaComponent implements OnInit {
         },
         (error: any) => {
           console.error('Erro ao excluir:', error);
-          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Alteração bem mal sucedida!' });
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Alteração mal sucedida!' });
         }
       );  
     }
@@ -102,42 +143,6 @@ export class TabelaGenericaComponent implements OnInit {
     this.openModal(item);
   }
 
-  deletar(item: any) {
-    if (this.componentePai === 'Cliente') { 
-      const confirmDelete = confirm(`Tem certeza que deseja deletar: ${item.razaoSocial} : ${item.id}?`);
-      
-      if (confirmDelete) {
-      
-        this.apiService.deleteCliente(item).subscribe(
-          (response: any) => {
-            this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Exclusão bem sucedida!' });
-          },
-          (error: any) => {
-            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao tentar excluir o item.' });
-            console.error('Erro ao excluir:', error);
-          }
-        );
-      }
-    }
-
-    if (this.componentePai === 'Equipamento') { 
-      const confirmDelete = confirm(`Tem certeza que deseja deletar: ${item.MarcaModelo} : ${item.IMEI}?`);
-      
-      if (confirmDelete) {
-      
-        this.apiService.deleteEquipamento(item).subscribe(
-          (response: any) => {
-            console.log('API Response:', response);
-            alert('Exclusão feita com sucesso!');
-          },
-          (error: any) => {
-            console.error('Erro ao excluir:', error);
-            alert('Ocorreu um erro ao tentar excluir o item.');
-          }
-        );
-      }
-    }
-  }
 
   
 

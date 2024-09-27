@@ -54,14 +54,9 @@ export class MenuVerticalComponent implements OnInit {
           icon: 'pi pi-cog',
           items: [
               {
-                  label: 'Cadastrar',
-                  icon: 'pi pi-plus',
-                  routerLink: 'lote/cadastrar'
-              },
-              {
                   label: 'Listar',
                   icon: 'pi pi-search',
-                  routerLink: 'lote/listar'
+                  routerLink: 'lote'
               }
           ]
       }

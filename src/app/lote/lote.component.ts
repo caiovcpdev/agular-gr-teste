@@ -18,7 +18,7 @@ export class LoteComponent {
     { field: 'IMEI', header: 'IMEI' },
     { field: 'MarcaModelo', header: 'Marca Modelo' },
     { field: 'COR', header: 'Cor' },
-    { field: 'idCliente', header: 'IDCliente' }
+    { field: 'IDCliente', header: 'IDCliente' }
   ];
 
   colunasCliente = [
@@ -48,7 +48,7 @@ export class LoteComponent {
         }));
       },
       error => {
-        console.error('Erro ao buscar usuarios', error);
+        console.error('Erro ao buscar clientes', error);
       }
     );
 
